@@ -33,7 +33,7 @@ Route::post('/sesion', [SesionController::class, 'store']);
 
 Route::get('/vistausuario', [SecureurlController::class, 'index'])->name('accesoseguro');
 
-Route::get('/logout', [CerrarSesionController::class, 'store'])->name('logout');
+Route::post('/logout', [CerrarSesionController::class, 'store'])->name('logout');
 
 //Route::get('/registro', function () {
 //    return view('auth.registro');
