@@ -25,8 +25,13 @@ class RegistroController extends Controller
             'name' => 'required|min:4',
             'username' => 'required|unique:users|min:3|max:15',
             'email' => 'required|unique:users|email|max:50',
-            'password' => 'required|min:6|max:50'
-
+            'password' => 'required|min:6|max:50',
+            'programa' => 'required|min:6',
+            'semestre' => 'required|min:1|max:2',
+            'celular' => 'required|min:10',
+            'direccion' => 'required|min:4',
+            'presentacion' => 'required|min:4|max:100',
+            'genero' => 'required|min:4|max:20'
         ]);
         User::create([
 
@@ -34,6 +39,12 @@ class RegistroController extends Controller
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'programa' => $request->programa,
+            'semestre' => $request->semestre,
+            'celular' => $request->celular,
+            'direccion' => $request->direccion,
+            'presentacion' => $request->presentacion,
+            'genero' => $request->genero,
         ]);
 
         //Autenticación de Usuarios

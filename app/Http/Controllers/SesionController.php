@@ -23,6 +23,6 @@ class SesionController extends Controller
         if (!auth()->attempt($request->only('email', 'password'))){
             return back()->with('mensaje', 'Usuario o Contraseña incorrecta');
         }
-        return redirect()->route('accesoseguro');
+        return redirect()->route('accesoseguro', ['user' => auth()->user()->username]);
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\SesionController;
 use App\Http\Controllers\SecureurlController;
 use App\Http\Controllers\CerrarSesionController;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,7 +32,7 @@ Route::post('/registro', [RegistroController::class, 'store']);
 Route::get('/sesion', [SesionController::class, 'index'])->name('sesion');
 Route::post('/sesion', [SesionController::class, 'store']);
 
-Route::get('/vistausuario', [SecureurlController::class, 'index'])->name('accesoseguro');
+Route::get('/{user:username}', [SecureurlController::class, 'index'])->name('accesoseguro');
 
 Route::post('/logout', [CerrarSesionController::class, 'store'])->name('logout');
 

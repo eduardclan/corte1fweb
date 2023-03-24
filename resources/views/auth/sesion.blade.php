@@ -72,7 +72,7 @@
             <p class="text-sm font-semibold mt-2 pt-1 mb-0">
               ¿Aún no te registras?
               <a
-                href="#!"
+                href="http://127.0.0.1:8000/registro"
                 class="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
                 >click aquí</a
               >
@@ -83,3 +83,12 @@
     </div>
   </div>
 </section>
+
+<!-- BUY ME A BEER AND HELP SUPPORT OPEN-SOURCE RESOURCES -->
+<div class="flex items-end justify-end fixed bottom-0 right-0 mb-4 mr-4 z-10">
+  <div>
+      <a title="Inicio" href="http://127.0.0.1:8000/" target="_blank" class="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
+          <img class="object-cover object-center w-full h-full rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logotipo_USTA_Colombia.gif"/>
+      </a>
+  </div>
+</div>
