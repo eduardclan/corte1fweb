@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Intervention\Image\Facades\Image;
+
+class imgController extends Controller
+{
+    public function store(Request $request) 
+    {
+        $imagen = $request->file('file');
+
+        $nombreImagen = Str::uuid() . "." . $imagen->extension();
+
+        $imagenServidor = Image::make($imagen);
+        $imagenServidor->fit(800, 800);
+
+        $imagenPath = public_path('uploads') . '/' . $nombreImagen;
+        $imagenServidor->save($imagenPath);
+
+        return response()->json(['imagen' => $nombreImagen]);
+    }
+}
