@@ -48,6 +48,15 @@ class SecureurlController extends Controller
         
     }
 
+    public function destroy(Post $post)
+        {
+            $this->authorize('delete', $post);
+
+            $post->delete();
+
+            return redirect()->route('accesoseguro', auth()->user()->username);
+        }
+
     public function show(User $user, Post $post)
     {  
         return view('publicaciones.show', [
@@ -55,4 +64,5 @@ class SecureurlController extends Controller
             'user' => $user
         ]);
     }
+
 }

@@ -8,6 +8,8 @@ use App\Http\Controllers\SecureurlController;
 use App\Http\Controllers\CerrarSesionController;
 use App\Http\Controllers\imgController;
 use App\Http\Controllers\ComentarioController;
+use App\Http\Controllers\LikeController;
+use App\Http\Controllers\FeedController;
 use App\Models\User;
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +36,10 @@ Route::post('/registro', [RegistroController::class, 'store']);
 Route::get('/sesion', [SesionController::class, 'index'])->name('sesion');
 Route::post('/sesion', [SesionController::class, 'store']);
 
+Route::get('/feed', [FeedController::class, 'index'])->name('feed');
+
 Route::get('/{user:username}', [SecureurlController::class, 'index'])->name('accesoseguro');
+
 
 Route::post('/logout', [CerrarSesionController::class, 'store'])->name('logout');
 
@@ -49,4 +54,7 @@ Route::get('/posts/{user:username}/{post}', [SecureurlController::class, 'show']
 //Route::get('/comments/create', [ComentarioController::class, 'create'])->name('comments.create');
 Route::post('/posts/{user:username}/{post}', [ComentarioController::class, 'store'])->name('comments.store');
 
+Route::delete('posts/{post}', [SecureurlController::class, 'destroy'])->name('publicaciones.destroy');
 Route::delete('/comentarios/{comentario}', [ComentarioController::class, 'destroy'])->name('comments.destroy');
+
+Route::post('likes', [LikeController::class, 'store'])->name('likes.store');
